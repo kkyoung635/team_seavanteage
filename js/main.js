@@ -151,7 +151,7 @@ const liPagingVisu = document.querySelectorAll('#visual .main-vis-paging ul li')
 const btnPrevVisu = document.querySelector('#visual .main-vis-paging .prev');
 const btnNextVisu = document.querySelector('#visual .main-vis-paging .next');
 const btnsVisuGo = document.querySelectorAll('#visual .main-vis-banner li .title p a');
-const arrGoVisURL = ['price.html', 'price.html', 'news.html'];
+const arrGoVisURL = ['price.html', 'price.html', 'inquiry.html'];
 const cRollVisu = new CMakeRollBanner(ulMainVisu);
 cRollVisu.pagingEle = liPagingVisu;
 cRollVisu.init();
