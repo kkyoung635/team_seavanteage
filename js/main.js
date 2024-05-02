@@ -1,4 +1,4 @@
-import arrNewsList from './data.js';
+import { strNewsDataURL, blogPost } from './data.js';
 
 const box = document.querySelector('.logos-width');
 const banner = document.querySelector('.logos-width .logo');
@@ -33,10 +33,14 @@ const stickyHeader = () => {
 };
 stickyHeader();
 
+// scroll paging
+const areas = [...document.querySelectorAll('.main .areas')];
+areas.forEach((item, idx) => {});
+
 // area5 between 6 banner link
 const btnGoCustom = document.querySelector('.main .band-banner');
 btnGoCustom.addEventListener('click', (e) => {
-    location.href = 'news.html';
+    location.href = 'price.html';
 });
 const objDefaultAnit = [{ opacity: [0, 1] }, { duration: 300, fill: 'forwards' }];
 
@@ -44,7 +48,7 @@ const objDefaultAnit = [{ opacity: [0, 1] }, { duration: 300, fill: 'forwards' }
 class CMakeRollBanner {
     prntNode = null;
     chldNode = null;
-    interval = 3000;
+    interval = 4500;
     nRollTime = 0.4;
     static pagingEle;
     timer = null;
@@ -113,6 +117,8 @@ class CMakeRollBanner {
 }
 class CRollForA4 extends CMakeRollBanner {
     static objAni;
+    bPagingAni = false;
+    spanDot = document.querySelector('.main .main-area4 .menu-paing span');
     constructor(ele) {
         super(ele);
     }
@@ -128,6 +134,19 @@ class CRollForA4 extends CMakeRollBanner {
         this.objAni[num].style.opacity = 0;
         this.objAni[num].animate({ ...objDefaultAnit[0], transform: ['translateX(-100%)', 'translateX(0%)'] }, { ...objDefaultAnit[1], duration: time, delay: time / 2 });
     }
+    paging(num = 0) {
+        super.paging(num);
+        if (this.bPagingAni === false) return;
+        this.pagingAniSet(this.pagingEle[num]);
+    }
+    pagingAniSet(ele) {
+        const wid = ele.getBoundingClientRect().left + ele.getBoundingClientRect().width - this.spanDot.getBoundingClientRect().width + 10 - ele.parentElement.getBoundingClientRect().left;
+        const ani = [
+            { transform: ['', `translateX(${wid}px)`], opacity: [0, 1] },
+            { duration: 400, fill: 'forwards' },
+        ];
+        this.spanDot.animate(...ani);
+    }
 }
 
 // main visual rolling
@@ -136,6 +155,7 @@ const liPagingVisu = document.querySelectorAll('#visual .main-vis-paging ul li')
 const btnPrevVisu = document.querySelector('#visual .main-vis-paging .prev');
 const btnNextVisu = document.querySelector('#visual .main-vis-paging .next');
 const btnsVisuGo = document.querySelectorAll('#visual .main-vis-banner li .title p a');
+const arrGoVisURL = ['price.html', 'price.html', 'news.html'];
 const cRollVisu = new CMakeRollBanner(ulMainVisu);
 cRollVisu.pagingEle = liPagingVisu;
 cRollVisu.init();
@@ -144,16 +164,22 @@ btnNextVisu.addEventListener('click', (e) => cRollVisu.setRoll(cRollVisu.nCurNod
 btnsVisuGo.forEach((item, idx) => {
     item.addEventListener('mouseenter', (e) => cRollVisu.stopRoll());
     item.addEventListener('mouseleave', (e) => cRollVisu.startRoll());
+    item.addEventListener('click', (e) => {
+        location.href = arrGoVisURL[idx];
+    });
 });
 
 // area1 hover event
 const ulArea1 = document.querySelector('.main .main-area1 .sol-listing');
 const imgArea1 = document.querySelector('.main .main-area1 .sol-bn img');
 const divArea1 = [...document.querySelectorAll('.main .main-area1 .sec-title')];
-const liArea1 = [...ulArea1.children];
+const [liArea1, arrGoA1URL] = [[...ulArea1.children], ['cargo.html', 'port.html', 'ship.html']];
 liArea1.forEach((item, idx) => {
     item.addEventListener('mouseenter', (e) => {
         fSetArea1Hover(idx + 1);
+    });
+    item.addEventListener('click', (e) => {
+        location.href = arrGoA1URL[idx];
     });
 });
 ulArea1.addEventListener('mouseleave', (e) => {
@@ -164,7 +190,7 @@ function fSetArea1Hover(num = 0) {
     divArea1[num].classList.add('on');
     divArea1[num].animate(...objDefaultAnit);
     imgArea1.animate(...objDefaultAnit);
-    imgArea1.setAttribute('src', `images/main/main-area1-img${num - 1}.jpg`);
+    imgArea1.setAttribute('src', `images/main/main-area1-img${num === 0 ? '-default' : num - 1}.jpg`);
     imgArea1.setAttribute('alt', document.querySelectorAll('.main .main-area1 .sec-title .title')[num].textContent);
 }
 
@@ -178,7 +204,6 @@ function fObserverInitA3() {
     const obser = new IntersectionObserver((entries, observer) => {
         if (entries[0].intersectionRatio <= 0) return;
         if (entries[0].isIntersecting) {
-            const interval = 1000;
             emCountNum.forEach((item, idx) => {
                 const num = Number(arrCountNum[idx].dataset.count),
                     speed = 250;
@@ -210,12 +235,12 @@ const arrImgArea3 = document.querySelectorAll('.main .main-area3 figure .roll .r
 const emTextArea3 = document.querySelector('.main .main-area3 figure .roll .img-txt-more em');
 const ancTextArea3 = document.querySelector('.main .main-area3 figure .roll .img-txt-more a.more');
 const divTextArea3 = document.querySelector('.main .main-area3 figure .roll .rolling-container .img-txt-more');
-const arrMoreURLA3 = ['news.html', 'recruit.html', 'index.html'];
+const arrMoreURLA3 = ['ship.html', 'about.html', 'about.html'];
 let nCurA3 = 0;
 const fRollArea3Bann = (num = 0) => {
     const cnt = arrImgArea3.length;
     const arrCls = ['before', 'on', 'after'];
-    let ani = [{ transform: ['scale(1)', 'scale(1.2)'] }, { duration: 400, fill: 'forward' }];
+    // let ani = [{ transform: ['scale(1)', 'scale(1.2)'] }, { duration: 400, fill: 'forward' }];
     const center = 1;
     num = (num < 0 ? cnt - 1 : num) % cnt;
     nCurA3 = num;
@@ -224,15 +249,16 @@ const fRollArea3Bann = (num = 0) => {
     for (let i = 0; i < cnt; i++) {
         let tmp = i - center + nCurA3;
         tmp = (tmp < 0 ? cnt + tmp : tmp) % cnt;
-        if (i === center) {
-            // arrImgArea3[tmp].style.transition = 'none';
-            // arrImgArea3[tmp].animate(...ani);
-        } //else arrImgArea3[tmp].style.transition = 'all 0.4s';
+        // if (i === center) {
+        //     // arrImgArea3[tmp].style.transition = 'none';
+        //     // arrImgArea3[tmp].animate(...ani);
+        // } //else arrImgArea3[tmp].style.transition = 'all 0.4s';
         arrImgArea3[tmp].classList.remove(arrImgArea3[tmp].className);
         arrImgArea3[tmp].classList.add(arrCls[i]);
     }
     divTextArea3.animate({ ...objDefaultAnit[0], transform: ['translateY(50px)', 'translateY(0)'] }, { duration: 1000 });
 };
+ancTextArea3.setAttribute('href', arrMoreURLA3[0]);
 btnNextArea3.addEventListener('click', (e) => {
     fRollArea3Bann(nCurA3 + 1);
 });
@@ -246,39 +272,58 @@ const ancRollArea4 = document.querySelectorAll('.main .main-area4 .menu-paing a'
 const cRollArea4 = new CRollForA4(ulRollArea4);
 cRollArea4.pagingEle = ancRollArea4;
 cRollArea4.objAni = document.querySelectorAll('.main .main-area4 .suit-banner li .bg-trans');
+cRollArea4.bPagingAni = true;
 cRollArea4.init();
+ulRollArea4.addEventListener('mouseenter', (e) => {
+    cRollArea4.stopRoll();
+});
+ulRollArea4.addEventListener('mouseleave', (e) => {
+    cRollArea4.startRoll();
+});
+ancRollArea4.forEach((item, idx) => {
+    item.addEventListener('click', (e) => {
+        cRollArea4.pagingAniSet(item);
+    });
+});
 
 // area6 scroll
 const btnContentCard = document.querySelectorAll('.main .main-area6 article .tab a');
 const newslist = document.querySelector('.news-list');
 const bloglist = document.querySelector('.blog-list');
+const allConList = document.querySelectorAll('.main .main-area6 article .rolling');
 const ulCardList = document.querySelectorAll('.main .main-area6 article .rolling .thums');
-const divScrollNavi = document.querySelector('.main .main-area6 .rolling-bar span.on');
-const arrBlogList = [...arrNewsList].sort((a, b) => (a.index > b.index ? -1 : 0));
-const nDefaultGage = parseInt(getComputedStyle(divScrollNavi).width);
-const nMaxGage = Number(getComputedStyle(divScrollNavi).getPropertyValue('--maxGage')) - nDefaultGage;
-let nCaptureY = 0,
-    bCaptureY = false,
-    bScrollEnd = false,
-    bViewNews = true,
-    liCardList = [[], []],
-    nMoveWdth = [];
+const spanGageBar = document.querySelectorAll('.main .main-area6 article .rolling .contain .processer span');
+const [arrNewsList, arrBlogList] = [strNewsDataURL, blogPost.filter((item) => item.id <= 5)];
+let bViewNews = true,
+    nLiWidth = 1100;
+btnContentCard.forEach((item, idx) => {
+    item.addEventListener('click', (e) => {
+        allConList.forEach(($item) => $item.classList.remove('on'));
+        btnContentCard.forEach(($item) => $item.classList.remove('on'));
+        item.classList.add('on');
+        bViewNews = idx === 0 ? true : false;
+        allConList[idx].animate(...objDefaultAnit);
+        allConList[idx].classList.add('on');
+        // fSetScrollAni(allConList[idx],bViewNews,ulCardList[idx],0);
+        // fSetScrollAni(allConList[idx],bViewNews,spanGageBar[idx],1);
+    });
+});
 function fContListInit(list, arr) {
     const ul = list.querySelector('ul');
-    const cate = list.className.indexOf('news');
+    const cate = list.className.indexOf('news') >= 0 ? true : false;
     ul.innerHTML = '';
     for (let i = 0; i < arr.length; i++) {
         const li = document.createElement('li');
         const p = document.createElement('p');
         const pic = document.createElement('img');
         pic.setAttribute('alt', arr[i].title);
-        pic.setAttribute('src', arr[i].thumb);
+        pic.setAttribute('src', `./images/main/area6/${cate === true ? 'news' : 'blog'}-img${i}.jpg`);
         p.append(pic);
         const span = document.createElement('span');
         span.setAttribute('class', 'title');
         span.textContent = arr[i].title;
         li.addEventListener('click', (e) => {
-            if (cate >= 0) location.href = 'news.html';
+            if (cate >= 0) location.href = 'news.html?num=' + (i + 1);
             else {
                 localStorage.setItem('num', i + 1);
                 location.href = 'blog.html';
@@ -287,58 +332,26 @@ function fContListInit(list, arr) {
         li.append(p, span);
         ul.append(li);
     }
+    fSetScrollAni(list, cate, ul, 0);
+    fSetScrollAni(list, cate, spanGageBar[cate === true ? 0 : 1], 1);
 }
-function fGageReset(flag) {
-    bScrollEnd = false;
-    divScrollNavi.style.width = `${nDefaultGage}px`;
-    liCardList.forEach((list) => list.forEach((item) => (item.style.transform = `translateX(0px)`)));
-    if (flag === true) {
-        newslist.classList.add('on');
-        bloglist.classList.remove('on');
-    } else {
-        newslist.classList.remove('on');
-        bloglist.classList.add('on');
-    }
+function fSetScrollAni(ele, b, target, n) {
+    const num = fGetWidhHeigh(ulCardList[b === true ? 0 : 1]);
+    nLiWidth = Number.isNaN(num) ? nLiWidth : num;
+    const objScrollWidth = { transform: ['', `translate(${-nLiWidth}px, 730px)`] };
+    const objScrollGege = { transform: ['', 'scaleX(1)'] };
+    const sTL = new ScrollTimeline({ source: ele });
+    target.animate(n === 0 ? objScrollWidth : objScrollGege, { fill: 'forwards', timeline: sTL });
 }
-function fSetGageBar(e) {
-    const idx = bViewNews ? 0 : 1;
-    const nListTop = Math.round(ulCardList[idx].getBoundingClientRect().y);
-    const nListHgt = Math.round(ulCardList[idx].getBoundingClientRect().height);
-    const bCenterEle = Math.round(window.innerHeight / 1.1) > Math.round(nListTop + nListHgt / 1.1);
-    if (bCenterEle && !bCaptureY) [nCaptureY, bCaptureY] = [window.scrollY, true];
-    if (bCenterEle && window.scrollY - nCaptureY <= nListHgt && !bScrollEnd) {
-        let [x1, x2] = [(Math.floor(window.scrollY - nCaptureY) * nMaxGage) / nListHgt, (Math.floor(window.scrollY - nCaptureY) * nMoveWdth[idx]) / nListHgt];
-        if (x1 < 0 || x2 < 0) return;
-        divScrollNavi.style.width = `${nDefaultGage + x1}px`;
-        liCardList[idx].forEach((item) => (item.style.transform = `translateX(${-x2}px)`));
-    } else if (bCenterEle && window.scrollY - nCaptureY > nListHgt && !bScrollEnd) {
-        bScrollEnd = true;
-        divScrollNavi.style.width = `${nDefaultGage + nMaxGage}px`;
-        liCardList[idx].forEach((item) => (item.style.transform = `translateX(${-(nMoveWdth[idx] + 120)}px)`));
-    }
+function fGetWidhHeigh(list) {
+    const li = [...list.children];
+    const nMoveWdth =
+        li.reduce((acc, crr) => {
+            return acc + parseInt(getComputedStyle(crr).marginLeft) + parseInt(getComputedStyle(crr).marginRight) + parseInt(getComputedStyle(crr).width) + parseInt(getComputedStyle(list).getPropertyValue('gap'));
+        }, 0) -
+        parseInt(getComputedStyle(list).width) -
+        parseInt(getComputedStyle(list).getPropertyValue('gap'));
+    return nMoveWdth;
 }
 fContListInit(newslist, arrNewsList);
 fContListInit(bloglist, arrBlogList);
-ulCardList.forEach((item, idx) => liCardList[idx].push(...item.children));
-liCardList.forEach((item, idx) => {
-    nMoveWdth[idx] =
-        item.reduce((acc, crr) => {
-            return acc + parseInt(getComputedStyle(crr).marginLeft) + parseInt(getComputedStyle(crr).marginRight) + parseInt(getComputedStyle(crr).width);
-        }, 0) - parseInt(getComputedStyle(ulCardList[idx]).width);
-});
-window.addEventListener('scroll', fSetGageBar);
-btnContentCard.forEach((item, idx) => {
-    item.addEventListener('click', (e) => {
-        const list = document.querySelectorAll('.main .main-area6 article .rolling');
-        list.forEach(($item) => {
-            $item.classList.remove('on');
-            $item.style.opacity = 0;
-        });
-        btnContentCard.forEach(($item) => $item.classList.remove('on'));
-        item.classList.add('on');
-        bViewNews = idx === 0 ? true : false;
-        fGageReset(bViewNews);
-        list[idx].animate({ ...objDefaultAnit[0] }, { ...objDefaultAnit[1], delay: 100 });
-        list[idx].classList.add('on');
-    });
-});

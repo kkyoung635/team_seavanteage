@@ -20,9 +20,9 @@
         <p id="skipNav" class="blind"><a href="#content">본문 바로가기</a></p>
         <div id="wrap">
             <header id="header">
-                <div class="type white"></div>
+                <div class="type black"></div>
             </header>
-            <section id="subVisual" class="type-img">
+            <section id="subVisual" class="inquiry-visual">
                 <div class="inner">
                     <span>
                         <a href="index.html">HOME</a><i class="bx bx-chevron-right"></i> <a href="#">문의</a><i class="bx bx-chevron-right"></i>
@@ -48,19 +48,19 @@
                                         <div class="input">
                                             <div class="input1">
                                                 <p>
-                                                    <label for="userName">이름</label>
+                                                    <label for="userName">이름 <b>*</b></label>
                                                     <input type="text" name="userName" id="userName" placeholder="이름을 입력해 주세요" />
                                                 </p>
                                                 <p>
-                                                    <label for="companyName">회사명</label>
+                                                    <label for="companyName">회사명 <b>*</b></label>
                                                     <input type="text" name="companyName" id="companyName" placeholder="회사명 또는 단체명 입력" />
                                                 </p>
                                                 <p>
-                                                    이메일 주소
+                                                    <label for="userEmail">이메일 주소 <b>*</b></label>
                                                     <input type="text" name="userEmail" id="userEmail" placeholder="sales@seavantage.com" />
                                                 </p>
                                                 <p>
-                                                    관심제품
+                                                    <label for="products">관심제품 <b>*</b></label>
                                                     <select name="products" id="products">
                                                         <option value="" disabled selected hidden>관심 제품 선택</option>
                                                     </select>
@@ -69,21 +69,21 @@
 
                                             <div class="input2">
                                                 <p>
-                                                    <label for="phone">연락처</label>
+                                                    <label for="phone">연락처 <b>*</b></label>
                                                     <input type="tel" name="phone" id="phone" onKeyup="this.value=this.value.replace(/[^-+0-9]/g,'');" />
                                                 </p>
                                                 <p>
-                                                    <label for="position">직책</label>
+                                                    <label for="position">직책 <b>*</b></label>
                                                     <input type="text" name="position" id="position" placeholder="담당하고 계시는 직책" />
                                                 </p>
                                                 <p>
-                                                    업종유형
+                                                    <label for="industryTypes">업종유형</label>
                                                     <select name="industryTypes" id="industryTypes">
                                                         <option value="" disabled selected hidden>업종유형 선택</option>
                                                     </select>
                                                 </p>
                                                 <p>
-                                                    문의사항
+                                                    <label for="inquirys">문의사항 <b>*</b></label>
                                                     <select name="inquirys" id="inquirys">
                                                         <option value="" disabled selected hidden>문의사항 선택</option>
                                                     </select>

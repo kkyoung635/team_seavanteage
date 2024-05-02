@@ -500,22 +500,23 @@
     transform: translateX(-50%);
     bottom: 0;
 }
-.main .main-area4 .menu-paing a {
-    font-size: 30px;
-    color: #fff;
-    position: relative;
-    font-weight: 700;
-}
-.main .main-area4 .menu-paing a.on::after {
-    content: '';
+.main .main-area4 .menu-paing span {
+    opacity: 1;
     width: 30px;
     height: 30px;
     border-radius: 50%;
     background: var(--primary-color);
     position: absolute;
-    right: -10px;
+    left: 0;
     top: -5px;
     z-index: -1;
+    transition: left, transform 0.4s;
+}
+.main .main-area4 .menu-paing a {
+    font-size: 30px;
+    color: #fff;
+    position: relative;
+    font-weight: 700;
 }
 /* area5 */
 .main .main-area5 {
@@ -618,26 +619,9 @@
     justify-content: center;
     align-items: center;
 }
-.main .main-area6 .inner {
-}
-.main .main-area6 .sec-title {
-}
-.main .main-area6 .sec-title p {
-}
 .main .main-area6 article {
     position: relative;
     height: 500px;
-}
-.main .main-area6 article .rolling {
-    width: 1600px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    visibility: hidden;
-    overflow: hidden;
-}
-.main .main-area6 article .rolling.on {
-    visibility: visible;
 }
 .main .main-area6 article .tab {
     display: flex;
@@ -652,114 +636,56 @@
     color: var(--primary-color);
     font-weight: 600;
 }
-.main .main-area6 article .rolling .thums {
-    margin-top: 76px;
-    display: flex;
-    gap: 30px;
-}
-.main .main-area6 article .rolling .thums li {
-}
-.main .main-area6 article .rolling .thums li p {
-    margin-bottom: 30px;
-    width: 513px;
-    height: 300px;
-    overflow: hidden;
-    border-radius: 10px;
-}
-.main .main-area6 article .rolling .thums li p img {
-    height: 100%;
-    width: 100%;
-}
-.main .main-area6 article .rolling .thums li span {
-    font-size: 20px;
-    font-weight: 500;
-    padding-left: 5px;
-}
-/* 뉴스룸 - 5개, 블로그 6개 스크롤 시 비율 다르게  */
-.main .main-area6 article .news-list {
-    /* display: none; */
-}
-.main .main-area6 article .blog-list {
-    /* display: none; */
-}
-.main .main-area6 .rolling-bar {
-    width: 100%;
-    position: relative;
-}
-.main .main-area6 .rolling-bar span {
-    width: 100%;
-    height: 3px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background: var(--gray-scale-50);
-}
-.main .main-area6 .rolling-bar span.on {
-    width: 20%;
-    background: var(--primary-color);
-    left: 0;
-    z-index: 1;
-    --maxGage: 1600;
-}
-/* ------------ test용 추가 삭제예정 --------------- */
-.main .sct1 {
-    width: 100%;
-    background-color: antiquewhite;
-    position: relative;
-}
-@keyframes ani-process {
-    to {
-        transform: scaleX(1);
-    }
-}
-.main .sct1 .contain {
-    margin: auto;
-    /* border: 1px solid #000; */
-    width: 1400px;
-    height: 600px;
-    margin-bottom: 200px;
+.main .main-area6 article .rolling {
+    width: 1600px;
+    height: 500px;
+    display: none;
     overflow-x: hidden;
     overflow-y: scroll;
     scrollbar-width: none;
-    scroll-timeline-name: --processbaring;
-    scroll-timeline-axis: block;
 }
-.main .sct1 .contain .large .proces {
-    position: absolute;
-    left: 20%;
-    top: -5px;
-    margin: auto;
-    width: 1400px;
-    transform-origin: 0 0;
-    transform: scaleX(0.2);
-    background-color: var(--primary-color);
-    height: 5px;
-    animation: ani-process linear forwards;
-    animation-timeline: --processbaring;
+.main .main-area6 article .rolling.on {
+    display: block;
 }
-.main .sct1 .contain .large {
+.main .main-area6 article .rolling .contain {
     height: 1200px;
 }
-.main .sct1 .contain .large ul {
-    margin-top: 76px;
+.main .main-area6 article .rolling .contain .processer {
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    margin: auto;
+    width: 1600px;
+    height: 5px;
+    background-color: var(--gray-scale-50);
+}
+.main .main-area6 article .rolling .contain .processer span {
+    display: block;
+    width: 1600px;
+    height: 5px;
+    background-color: var(--primary-color);
+    transform-origin: 0 0;
+    transform: scaleX(0.2);
+}
+.main .main-area6 article .rolling .contain .thums {
+    margin-top: 30px;
     display: flex;
     gap: 30px;
     position: relative;
 }
-.main .sct1 .contain .large ul li p {
+.main .main-area6 article .rolling .contain .thums li p {
     margin-bottom: 30px;
     width: 513px;
     height: 300px;
     overflow: hidden;
     border-radius: 10px;
 }
-.main .sct1 .contain .large ul li p img {
+.main .main-area6 article .rolling .contain .thums li p img {
     height: 100%;
     width: 100%;
 }
-.main .sct1 .contain .large ul li .title {
+.main .main-area6 article .rolling .contain .thums li span {
     font-size: 20px;
     font-weight: 500;
     padding-left: 5px;
 }
-/* ------------ test용 추가 삭제예정 --------------- */

@@ -1,4 +1,4 @@
-const strNewsDataURL = [
+export const strNewsDataURL = [
     {
         index: 1,
         title: "'물류에서 공급망 가시화가 필요한 이유' 웨비나 개최",
@@ -182,7 +182,7 @@ const strNewsDataURL = [
 `,
     },
 ];
-export default strNewsDataURL;
+// export default strNewsDataURL;
 
 let blogPost = [
     {

@@ -1,4 +1,4 @@
-import arrNewsList, { blogPost, eventPost, guidePost, terms, channels, solutions, languages, industryTypes, inquirys, products } from './data.js';
+import { blogPost, eventPost, guidePost, terms, channels, solutions, languages, industryTypes, inquirys, products, strNewsDataURL } from './data.js';
 /* --------------------------------------------------------------------
 create bt kim-seo-jin
 at 2024-04-30 / about
@@ -293,6 +293,8 @@ const iotScroll = () => {
 function fNewsPageInit() {
     const ulNewsList = document.querySelector('.news .newslist > ul');
     const divNewsCon = document.querySelector('.news .newscont');
+    const arrNewsList = strNewsDataURL;
+
     let nLastNewsClick = 0,
         nCurNews = 0;
     const fNewsListInit = () => {
@@ -1051,9 +1053,8 @@ const inquiryCheck = () => {
     const $tel = get('.inquiry .inquirys .write .input2 #phone');
     const $position = get('.inquiry .inquirys .write .input2 #position');
     const $select1 = get('.inquiry .inquirys .write .input1 #products');
-    const $select2 = get('.inquiry .inquirys .write .input2 #industryTypes');
-    const $select3 = get('.inquiry .inquirys .write .input2 #inquirys');
-    const $chkbox = get('.inquiry .inquirys .write .agree .chkbox #chk1');
+    const $select2 = get('.inquiry .inquirys .write .input2 #inquirys');
+    const $chkbox = get('.inquiry .inquirys .write .agree .chkbox em #chk1');
     if ($name.value === '') {
         alert('이름을 입력해 주세요.');
         $name.focus();
@@ -1070,15 +1071,12 @@ const inquiryCheck = () => {
         alert('직책을 입력해 주세요.');
         $position.focus();
     } else if ($select1.value === '') {
-        alert('직책을 입력해 주세요.');
+        alert('관심제품을 선택해 주세요.');
         $select1.focus();
     } else if ($select2.value === '') {
-        alert('직책을 입력해 주세요.');
+        alert('문의사항을 선택해 주세요.');
         $select2.focus();
-    } else if ($select3.value === '') {
-        alert('직책을 입력해 주세요.');
-        $select3.focus();
-    } else if ($chkbox.checked == false) {
+    } else if ($chkbox.checked === false) {
         alert('개인정보 이용에 동의해주세요.');
         $chkbox.focus();
         return false;
@@ -1306,16 +1304,16 @@ const signUpCheck = () => {
     let $id = get('.signup form .input p #userName');
     let $email = get('.signup form .input p #userEmail');
     let $company = get('.signup form .input p #companyName');
-    let $tel = get('.signup form .input p em #phone');
-    let $chan = get('.signup form .input p #channel');
     let $sol = get('.signup form .input p #solution');
     let $lan = get('.signup form .input p #language');
 
     if ($chk1.checked === false) {
         alert('개인정보 이용에 동의해주세요.');
+        $chk1.focus();
         return false;
     } else if ($chk2.checked === false) {
         alert('이용약관에 동의해주세요.');
+        $chk2.focus();
         return false;
     } else if ($id.value === '') {
         alert('사용자 성함을 입력해 주세요.');
@@ -1326,12 +1324,6 @@ const signUpCheck = () => {
     } else if ($company.value === '') {
         alert('회사명을 입력해 주세요.');
         $company.focus();
-    } else if ($tel.value === '') {
-        alert('전화번호를 입력해 주세요.');
-        $tel.focus();
-    } else if ($chan.value === '') {
-        alert('유입채널을 선택해 주세요.');
-        $chan.focus();
     } else if ($sol.value === '') {
         alert('관심 솔루션을 선택해 주세요.');
         $sol.focus();
@@ -1343,7 +1335,6 @@ const signUpCheck = () => {
         window.location.replace('./login.html');
     }
 };
-
 // signup.html - 제출버튼
 const signUpSubmit = () => {
     const $btn = get('.signup form .btn button');
