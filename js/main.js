@@ -33,10 +33,6 @@ const stickyHeader = () => {
 };
 stickyHeader();
 
-// scroll paging
-const areas = [...document.querySelectorAll('.main .areas')];
-areas.forEach((item, idx) => {});
-
 // area5 between 6 banner link
 const btnGoCustom = document.querySelector('.main .band-banner');
 btnGoCustom.addEventListener('click', (e) => {
