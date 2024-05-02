@@ -1117,8 +1117,6 @@ const tel = () => {
     });
     input.addEventListener('change', function () {
         var selectedCountryData = iti.getSelectedCountryData();
-        console.log('국가 코드:', selectedCountryData.iso2);
-        console.log('전화번호:', iti.getNumber());
     });
 };
 /* --------------------------------------------------------------------

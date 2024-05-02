@@ -307,7 +307,6 @@ function fSetGageBar(e) {
     const bCenterEle = Math.round(window.innerHeight / 1.1) > Math.round(nListTop + nListHgt / 1.1);
     if (bCenterEle && !bCaptureY) [nCaptureY, bCaptureY] = [window.scrollY, true];
     if (bCenterEle && window.scrollY - nCaptureY <= nListHgt && !bScrollEnd) {
-        // window.scrollTo(0, 6800);
         let [x1, x2] = [(Math.floor(window.scrollY - nCaptureY) * nMaxGage) / nListHgt, (Math.floor(window.scrollY - nCaptureY) * nMoveWdth[idx]) / nListHgt];
         if (x1 < 0 || x2 < 0) return;
         divScrollNavi.style.width = `${nDefaultGage + x1}px`;
@@ -317,7 +316,6 @@ function fSetGageBar(e) {
         divScrollNavi.style.width = `${nDefaultGage + nMaxGage}px`;
         liCardList[idx].forEach((item) => (item.style.transform = `translateX(${-(nMoveWdth[idx] + 120)}px)`));
     }
-    // console.log(window.scrollY);
 }
 fContListInit(newslist, arrNewsList);
 fContListInit(bloglist, arrBlogList);
