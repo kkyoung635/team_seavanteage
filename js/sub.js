@@ -102,11 +102,35 @@ const tab = () => {
 };
 const scrollCommon = () => {
     let $video = get('.soln-vid .video video');
+    let $txtMore = get('.soln-band .img-txt-more');
     window.addEventListener('scroll', (e) => {
         if (window.scrollY >= 1800) {
             $video.play();
         }
     });
+
+    let observer = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                let txtMo = entry.target;
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        txtMo.classList.add('on');
+                    }, 100);
+                } else {
+                    txtMo.classList.remove('on');
+                }
+            });
+        },
+        {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5,
+            // 50%이상 타겟이 화면에 나타나면 클래스를 추가
+        }
+    );
+
+    observer.observe($txtMore);
 };
 const solCommon = () => {
     tab();
@@ -153,6 +177,17 @@ const cargoBanner = () => {
             clearInterval(timer);
             timer = setInterval(time, interval);
         });
+    });
+};
+// shit - area1 스크롤 이벤트
+const shipBanner = () => {
+    const $bns = getAll('.ship .ship-area1 .listing-banner li');
+    window.addEventListener('scroll', (e) => {
+        if (window.scrollY >= 500) {
+            $bns.forEach((bns) => {
+                bns.classList.add('on');
+            });
+        }
     });
 };
 // iot - 버튼클릭 배너
@@ -217,7 +252,6 @@ const iotScroll = () => {
     let $videoArea = get('.iot .iot-area6 .video');
     let $videos = getAll('.iot .iot-area6 .video ul li');
     let timer;
-
     window.addEventListener('scroll', (e) => {
         if (window.scrollY >= 720) {
             $images1.classList.add('on');
@@ -721,14 +755,15 @@ function fRecruitPageInit() {
 }
 /* --------------------------------------------------------------------
     create by kang-young-hyun
-    at 2024-04-29 / recruit dark mode
+    at 2024-04-29 / recruit dark mode + recruit ani
 --------------------------------------------------------------------*/
 function fRecruitDark() {
     const $recruitHeader = get('#header div');
     const $recruitVis = get('#subVisual');
     const $recruitMain = get('.cowork');
     const $recruitCircle = get('.cowork .irdiagram .circular div:nth-of-type(1)');
-    console.log($recruitCircle);
+    const $irView = get('.cowork .ir-view');
+
     let tema = true;
 
     setTimeout(() => {
@@ -739,6 +774,7 @@ function fRecruitDark() {
         $recruitMain.classList.add('dark');
         $recruitMain.style.transition = `0.4s`;
     }, 1000);
+
     $recruitCircle.addEventListener('click', (e) => {
         if (tema) {
             $recruitHeader.classList.remove('white');
@@ -755,8 +791,30 @@ function fRecruitDark() {
 
             tema = true;
         }
-        // $recruitHeader.classList.toggle('black');
     });
+
+    let observer = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                let irveiw = entry.target;
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        irveiw.classList.add('on');
+                    }, 500);
+                } else {
+                    irveiw.classList.remove('on');
+                }
+            });
+        },
+        {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5,
+            // 50%이상 타겟이 화면에 나타나면 클래스를 추가
+        }
+    );
+
+    observer.observe($irView);
 }
 /* --------------------------------------------------------------------
 create bt kang-young-hyun
@@ -1308,6 +1366,7 @@ const port = () => {
 };
 const ship = () => {
     solCommon();
+    shipBanner();
 };
 const iot = () => {
     iotBanner();

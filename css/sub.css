@@ -1,15 +1,25 @@
 /* 기업소개 -------------------------------------------------------------- */
 #aboutVisual {
     margin-bottom: -10px;
+    height: 1080px;
+}
+#aboutVisual .bg {
+    height: 1080px;
+    overflow: hidden;
 }
 #aboutVisual .bg video {
     width: 100%;
-    height: 100%;
+}
+#aboutVisual .txt {
+    width: 1600px;
+    margin: auto;
+
+    position: relative;
 }
 #aboutVisual .txt h2 {
     position: absolute;
     top: 406px;
-    left: 160px;
+    left: 0px;
     font-size: 60px;
     z-index: 1;
     color: #fff;
@@ -24,7 +34,7 @@
 #aboutVisual .txt p {
     position: absolute;
     top: 600px;
-    left: 160px;
+    left: 0px;
     z-index: 1;
     color: #fff;
     font-weight: 200;
@@ -36,6 +46,7 @@
 /* visual end */
 .about {
     background: var(--gray-scale-500);
+    width: 100%;
 }
 .about .con1 {
     width: 100%;
@@ -141,7 +152,7 @@
 .about .con2 {
     text-align: center;
     box-sizing: border-box;
-    height: 400px;
+    height: 500px;
     width: 100%;
     position: relative;
     box-sizing: border-box;
@@ -153,16 +164,19 @@
     color: #fff;
 }
 .about .con2 .list {
+    width: 1600px;
+    margin: auto;
+    gap: 100px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin-top: 48px;
-    margin-left: 180px;
+    margin-top: 100px;
+    z-index: 100;
 }
 .about .con2 .list li {
-    margin-right: 220px;
+    width: 300px;
 }
 .about .con2 .list li:last-child {
-    margin-right: 0;
 }
 .about .con2 .list li p {
     font-size: 24px;
@@ -176,29 +190,31 @@
     font-weight: 600;
 }
 .about .con2 img {
-    width: 1920px;
+    width: 100%;
     height: 144px;
     position: absolute;
-    bottom: 0;
-    left: -160px;
+    top: 0;
+    left: 0;
     animation: animate 4s ease-in-out infinite;
+}
+.about .con2 .bg-wave {
+    width: 100%;
+    height: 600px;
+    position: relative;
 }
 .about .con2 .wave1 {
     animation-delay: 0.3s;
-    z-index: 1;
     opacity: 0.5;
 }
 .about .con2 .wave2 {
     animation-delay: 0s;
-    z-index: 3;
 }
 .about .con2 .box {
-    width: 2000px;
+    width: 100%;
     height: 50px;
     position: absolute;
     z-index: 2;
-    bottom: -30px;
-    left: -200px;
+    bottom: 0;
     background: #292929;
 }
 @keyframes animate {
@@ -479,6 +495,9 @@
     justify-content: center;
     box-sizing: border-box;
 }
+#solnVisual .soln-vis-banner .vis-title {
+    animation: BottomTOTop 1.5s forwards;
+}
 #solnVisual .soln-vis-banner span {
     font-size: 20px;
     color: var(--primary-color);
@@ -530,8 +549,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    opacity: 0;
-    animation: BottomTOTop 3s forwards 0.5s;
 }
 .soln-page .img-txt-more em {
     text-transform: uppercase;
@@ -691,6 +708,10 @@
 }
 .soln-band .img-txt-more {
     margin-bottom: 25px;
+    opacity: 0;
+}
+.soln-band .img-txt-more.on {
+    animation: BottomTOTop 1s forwards;
 }
 .soln-band .img-txt-more em {
     padding-left: 10px;
@@ -813,6 +834,7 @@
 }
 .cargo .cargo-area1 ul li {
     position: absolute;
+    transition: 0.4s;
 }
 .cargo .cargo-area1 ul li:nth-child(1) {
     left: 0;
@@ -1055,6 +1077,22 @@
     margin-top: 60px;
 }
 .ship .ship-area1 .listing-banner li {
+    opacity: 0;
+}
+.ship .ship-area1 .listing-banner li.on {
+    animation: irInfo 0.6s forwards;
+}
+.ship .ship-area1 .listing-banner li:nth-child(1) {
+    animation-delay: 0.3s;
+}
+.ship .ship-area1 .listing-banner li:nth-child(2) {
+    animation-delay: 0.6s;
+}
+.ship .ship-area1 .listing-banner li:nth-child(3) {
+    animation-delay: 0.9s;
+}
+.ship .ship-area1 .listing-banner li:nth-child(4) {
+    animation-delay: 1.2s;
 }
 
 .ship .ship-area1 .listing-banner li em {
@@ -1124,11 +1162,10 @@
 }
 
 .iot .iot-area1 .speech.on img:nth-child(1) {
-    animation: BottomTOTop 3s forwards 0.5s;
+    animation: BottomTOTop 1.5s forwards;
 }
 .iot .iot-area1 .speech.on img:nth-child(2) {
-    animation: BottomTOTop 3s forwards 0.5s;
-    animation-delay: 1.2s;
+    animation: BottomTOTop 1.5s forwards 0.5s;
 }
 
 .iot .iot-area4 {
@@ -1161,11 +1198,10 @@
 }
 
 .iot .iot-area4 ul.on li:nth-child(1) {
-    animation: BottomTOTop 1s forwards 0.5s;
+    animation: BottomTOTop 1s forwards;
 }
 .iot .iot-area4 ul.on li:nth-child(2) {
-    animation: BottomTOTop 1s forwards 0.5s;
-    animation-delay: 1.2s;
+    animation: BottomTOTop 1s forwards 0.3s;
 }
 
 .iot .iot-area4 ul li p {
@@ -1286,7 +1322,6 @@
     text-align: center;
     border: 1px solid #f5f5f5;
     box-sizing: border-box;
-    padding: 0 106px;
     word-break: keep-all;
     position: absolute;
     right: 0;
@@ -2052,6 +2087,7 @@ p.blog-more a img.right-arrow {
 .cowork .irdiagram {
     width: 100%;
     text-align: center;
+    position: relative;
 }
 .cowork .irdiagram .circular {
     margin: auto;
@@ -2063,7 +2099,7 @@ p.blog-more a img.right-arrow {
     animation: cirCular 1s ease-in-out forwards;
     animation-delay: 0.5s;
 }
-.cowork .irdiagram .circular div:nth-child(1) {
+.cowork .irdiagram .circular div:nth-of-type(1) {
     text-align: center;
     border-radius: 50%;
     width: 200px;
@@ -2079,10 +2115,25 @@ p.blog-more a img.right-arrow {
     transform: translate(-50%, -50%);
     animation: cirCularIn 0.5s ease-in-out forwards;
     animation-delay: 0.3s;
+    cursor: pointer;
+}
+.cowork .irdiagram span {
+    content: '';
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-color: var(--primary-color-60);
+    box-shadow: rgba(27, 197, 197, 0.36) 0px 0px 6px, rgba(27, 197, 197, 0.43) 0px 3px 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    z-index: -9;
+    animation: pluseEfec 1.5s ease-in-out infinite 1s;
 }
 
-.cowork .irdiagram .circular div:nth-child(1)::before,
-.cowork .irdiagram .circular div:nth-child(1)::after {
+.cowork .irdiagram .circular div:nth-of-type(1)::before,
+.cowork .irdiagram .circular div:nth-of-type(1)::after {
     content: '';
     display: inline-block;
     width: 300px;
@@ -2095,12 +2146,12 @@ p.blog-more a img.right-arrow {
     border-radius: 50%;
     z-index: -5;
 }
-.cowork .irdiagram .circular div:nth-child(1)::after {
+.cowork .irdiagram .circular div:nth-of-type(1)::after {
     width: 400px;
     height: 400px;
     background-color: var(--primary-color-20);
 }
-.cowork .irdiagram .circular div:nth-child(2) {
+.cowork .irdiagram .circular div:nth-of-type(2) {
     position: absolute;
     width: 1000px;
     left: 0;
@@ -2112,11 +2163,11 @@ p.blog-more a img.right-arrow {
     animation-delay: 1s;
 }
 
-.cowork .irdiagram .circular div:nth-child(2) h3 {
+.cowork .irdiagram .circular div:nth-of-type(2) h3 {
     font-size: 40px;
     font-weight: 700;
 }
-.cowork .irdiagram .circular div:nth-child(2) h4 {
+.cowork .irdiagram .circular div:nth-of-type(2) h4 {
     margin-top: 30px;
     font-size: 24px;
 }
@@ -2167,6 +2218,10 @@ p.blog-more a img.right-arrow {
     margin-top: 150px;
     width: 100%;
     margin-bottom: 200px;
+    opacity: 0;
+}
+.cowork .ir-view.on {
+    animation: irInfo 0.5s forwards;
 }
 .cowork .ir-view h3 {
     text-align: center;
@@ -2182,36 +2237,38 @@ p.blog-more a img.right-arrow {
 .cowork .ir-view .irlist li {
     width: 490px;
     height: 500px;
-    background-color: var(--primary-color-10);
+    /* background-color: var(--primary-color-10); */
+    background: #f5f5f5;
 }
 .cowork .ir-view .irlist li div {
     margin-left: 70px;
     width: 400px;
 }
-.cowork .ir-view .irlist li div:nth-child(1) {
+.cowork .ir-view .irlist li div:nth-of-type(1) {
     margin-top: 60px;
     font-size: 24px;
     line-height: 60px;
 }
-.cowork .ir-view .irlist li div:nth-child(1) em {
+.cowork .ir-view .irlist li div:nth-of-type(1) em {
     display: inline-block;
-    color: var(--primary-color);
+    /* color: var(--primary-color); */
+    color: var(--gray-scale-900);
     margin-left: 15px;
     line-height: 60px;
     transition: 0.3s;
 }
-.cowork .ir-view .irlist li div:nth-child(2) {
+.cowork .ir-view .irlist li div:nth-of-type(2) {
     margin-top: 20px;
     font-size: 40px;
     height: 140px;
     word-spacing: wrap;
     line-height: 1.2;
 }
-.cowork .ir-view .irlist li div:nth-child(3) {
+.cowork .ir-view .irlist li div:nth-of-type(3) {
     margin-top: 40px;
     overflow: hidden;
 }
-.cowork .ir-view .irlist li div:nth-child(3) span {
+.cowork .ir-view .irlist li div:nth-of-type(3) span {
     display: inline-block;
     margin-right: 15px;
     width: 100px;
@@ -2230,7 +2287,8 @@ p.blog-more a img.right-arrow {
     margin-top: 65px;
     width: 100%;
     height: 80px;
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
+    background-color: var(--gray-scale-600);
     color: #fff;
     font-size: 24px;
     font-weight: 500;
@@ -2238,14 +2296,17 @@ p.blog-more a img.right-arrow {
     transition: 0.3s;
     cursor: pointer;
 }
-.cowork .ir-view .irlist li:hover div:nth-child(1) em {
-    color: #000;
+.cowork .ir-view .irlist li:hover div:nth-of-type(1) em {
+    /* color: #000; */
+    color: var(--primary-color);
 }
 .cowork .ir-view .irlist li:hover {
-    background: #f5f5f5;
+    /* background: #f5f5f5; */
+    background-color: var(--primary-color-10);
 }
 .cowork .ir-view .irlist li:hover button {
-    background: var(--gray-scale-900);
+    /* background: var(--gray-scale-900); */
+    background-color: var(--primary-color);
 }
 
 /* ------------------------- recruit dark mode----------------------------------------- */
@@ -2265,11 +2326,11 @@ p.blog-more a img.right-arrow {
 .cowork.dark .irdiagram .circular div:nth-of-type(1) {
     background: var(--primary-color);
 }
-.cowork.dark .irdiagram .circular div:nth-child(1)::before,
-.cowork.dark .irdiagram .circular div:nth-child(1)::after {
+.cowork.dark .irdiagram .circular div:nth-of-type(1)::before,
+.cowork.dark .irdiagram .circular div:nth-of-type(1)::after {
     background: var(--primary-color-40);
 }
-.cowork.dark .irdiagram .circular div:nth-child(1)::after {
+.cowork.dark .irdiagram .circular div:nth-of-type(1)::after {
 }
 .cowork.dark .irdiagram .irinfo div:nth-of-type(1):hover {
     background: var(--primary-color-30);
@@ -2283,15 +2344,18 @@ p.blog-more a img.right-arrow {
 .cowork.dark .ir-view .irlist li {
     background: #fff;
     color: var(--gray-scale-600);
+    background: var(--gray-scale-100);
     transition: 0.3s;
 }
 .cowork.dark .ir-view .irlist li:hover {
     color: var(--gray-scale-900);
-    background: var(--gray-scale-100);
+    /* background: var(--gray-scale-100); */
+    background: #fff;
 }
 
 .cowork.dark .ir-view .irlist li:hover button {
-    background: var(--gray-scale-600);
+    /* background: var(--gray-scale-600); */
+    background: var(--primary-color);
 }
 
 /* inquiryPage --------------------------------------------------------------*/
@@ -2841,10 +2905,10 @@ p.blog-more a img.right-arrow {
     display: flex;
     width: 972px;
     height: 600px;
-    /* background-color: #f0f0f3; */
     background-color: var(--gray-scale-50);
     position: relative;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    animation: 1s BottomTOTop 1 linear forwards;
 }
 .login-page .img-slide {
     position: relative;
@@ -2852,9 +2916,12 @@ p.blog-more a img.right-arrow {
     height: 600px;
     overflow: hidden;
 }
-.login-page .img-slide .slide li img {
+.login-page .img-slide .slide li {
     width: 472px;
     height: 600px;
+}
+.login-page .img-slide .slide li img {
+    height: 100%;
 }
 .login-page .img-slide .slide li:first-child {
     left: 0px;
@@ -2870,9 +2937,10 @@ p.blog-more a img.right-arrow {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 70px;
+    bottom: 40px;
     z-index: 30;
     cursor: pointer;
+    gap: 20px;
 }
 .login-page .img-slide .paging li {
     width: 15px;
@@ -2880,25 +2948,21 @@ p.blog-more a img.right-arrow {
     border-radius: 50%;
     background: #fff;
     opacity: 0.4;
-    margin-right: 20px;
-}
-.login-page .img-slide .paging li:last-of-type {
-    margin-right: 0;
 }
 .login-page .img-slide .paging li.active {
     background: var(--primary-color);
-    border: 1px solid #fff;
     opacity: 1;
 }
-
 .login-page .login-form {
-    padding: 29px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
 }
 .login-page .login-form h3 {
     font-size: 30px;
     font-weight: 700;
-    line-height: 1.6;
-    letter-spacing: -3%;
+    letter-spacing: 0.6px;
 }
 .login-page .login-form h3:last-of-type {
     margin-bottom: 70px;
@@ -2975,7 +3039,6 @@ p.blog-more a img.right-arrow {
     cursor: pointer;
     font-weight: 700;
     background: #fff;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .login-page .login-form .btn-wrap .btn-login:hover {
@@ -2983,7 +3046,7 @@ p.blog-more a img.right-arrow {
     transition: 0.4s;
 }
 .login-page .login-form .btn-wrap .btn-login {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     background: var(--primary-color-60);
     color: #fff;
     transition: 0.4s;
