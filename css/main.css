@@ -79,7 +79,7 @@
     color: #fff;
     display: flex;
     gap: 45px;
-    z-index: 100;
+    z-index: 10;
 }
 #visual .main-vis-paging .prev i,
 #visual .main-vis-paging .next i {
@@ -113,7 +113,7 @@
     bottom: 70px;
     opacity: 0.8;
     letter-spacing: 1px;
-    z-index: 50;
+    z-index: 100;
 }
 #visual .scroll-icon {
     float: right;
@@ -223,14 +223,14 @@
 /* area2 */
 .main .main-area2 {
     box-sizing: border-box;
-    height: 850px;
+    height: 1080px;
+    padding: 400px 0;
 }
 .main .main-area2 .inner {
     width: 100%;
 }
 .main .main-area2 .sec-title {
     text-align: center;
-    margin-top: 50px;
 }
 .main .main-area2 .logos-width {
     display: flex;
@@ -521,9 +521,9 @@
 }
 /* area5 */
 .main .main-area5 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 1080px;
+    position: relative;
+    box-sizing: border-box;
 }
 .main .main-area5 .inner {
     display: flex;
@@ -561,43 +561,45 @@
     transform: translateY(-100%);
 }
 /* band banner */
-.main .band-banner {
+.main .main-area5 .band-banner {
     width: 100%;
-    margin: auto;
     background: url(../images/main/band-bg.jpg);
     background-position: 0 0;
     background-repeat: no-repeat;
     background-size: cover;
     box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
-.main .band-banner .inner {
+.main .main-area5 .band-banner .inner {
     width: 1600px;
     height: 200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.main .band-banner .text {
+.main .main-area5 .band-banner .text {
 }
-.main .band-banner .text b {
+.main .main-area5 .band-banner .text b {
     font-size: 30px;
     font-weight: 300;
     color: #fff;
 }
-.main .band-banner .text b em {
+.main .main-area5 .band-banner .text b em {
     font-weight: 600;
     color: var(--primary-color);
 }
-.main .band-banner .text span {
+.main .main-area5 .band-banner .text span {
     display: block;
     font-weight: 300;
     font-size: 20px;
     color: #fff;
 }
-.main .band-banner p {
+.main .main-area5 .band-banner p {
     text-align: center;
 }
-.main .band-banner p a {
+.main .main-area5 .band-banner p a {
     line-height: 60px;
     width: 160px;
     height: 60px;
@@ -610,7 +612,7 @@
     background: rgba(0, 0, 0, 0.3);
     transition: 0.3s;
 }
-.main .band-banner p a:hover {
+.main .main-area5 .band-banner p a:hover {
     background: var(--primary-color);
     outline: none;
 }

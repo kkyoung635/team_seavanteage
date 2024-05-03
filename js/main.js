@@ -33,6 +33,31 @@ const stickyHeader = () => {
 };
 stickyHeader();
 
+// scroll paging
+let arrGetSectionTops = [];
+function fGetAreaTops() {
+    const nDocuTop = document.documentElement.getBoundingClientRect().top;
+    return [...document.querySelectorAll('.main .areas')].map((item) => Math.floor(item.getBoundingClientRect().top - nDocuTop));
+}
+const fWheelPage = (e) => {
+    if (e.deltaY < 0) return;
+    const nNowY = Math.floor(window.scrollY) + 100;
+    let ty = e.deltaY > 0 ? arrGetSectionTops.find((num) => nNowY < num) : arrGetSectionTops.findLast((num) => nNowY > num);
+    ty = ty === undefined && e.deltaY < 0 ? 0 : ty;
+    const k = e.ctrlKey || e.shiftKey || e.altKey || e.metaKey;
+    if (ty !== undefined && k !== true) {
+        e.preventDefault();
+        window.scroll({ top: ty + 5, behavior: 'smooth' });
+    }
+};
+window.addEventListener('resize', (e) => {
+    arrGetSectionTops = fGetAreaTops();
+});
+window.addEventListener('load', (e) => {
+    arrGetSectionTops = fGetAreaTops();
+});
+window.addEventListener('wheel', fWheelPage, { passive: false });
+
 // area5 between 6 banner link
 const btnGoCustom = document.querySelector('.main .band-banner');
 btnGoCustom.addEventListener('click', (e) => {
@@ -319,10 +344,10 @@ function fContListInit(list, arr) {
         span.setAttribute('class', 'title');
         span.textContent = arr[i].title;
         li.addEventListener('click', (e) => {
-            if (cate >= 0) location.href = 'news.html?num=' + (i + 1);
+            if (cate === true) location.href = 'news.html?num=' + (i + 1) + '#newsContent';
             else {
-                localStorage.setItem('num', i + 1);
-                location.href = 'blog.html';
+                localStorage.setItem('num', i);
+                location.href = 'blogPost.html';
             }
         });
         li.append(p, span);
