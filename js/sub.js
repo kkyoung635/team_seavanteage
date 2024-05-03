@@ -294,9 +294,9 @@ function fNewsPageInit() {
     const ulNewsList = document.querySelector('.news .newslist > ul');
     const divNewsCon = document.querySelector('.news .newscont');
     const arrNewsList = strNewsDataURL;
-
+    const arrQuerySting = location.search.replace('?', '').split('=');
     let nLastNewsClick = 0,
-        nCurNews = 0;
+        nCurNews = arrQuerySting[0] === 'num' && !Number.isNaN(arrQuerySting[1].trim()) ? Number(arrQuerySting[1].trim()) - 1 : 0;
     const fNewsListInit = () => {
         ulNewsList.innerHTML = '';
         divNewsCon.innerHTML = '';
@@ -320,7 +320,7 @@ function fNewsPageInit() {
             li.append(a);
             ulNewsList.append(li);
         }
-        fViewNews(0);
+        fViewNews(nCurNews);
     };
     function fViewNews(num, ev = null) {
         if (ev !== null) {
