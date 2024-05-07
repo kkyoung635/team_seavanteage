@@ -1,0 +1,176 @@
+/* 전체 공통 */
+:root {
+    --primary-color: rgba(27, 197, 197, 1);
+    --primary-color-90: rgba(27, 197, 197, 0.9);
+    --primary-color-80: rgba(27, 197, 197, 0.8);
+    --primary-color-70: rgba(27, 197, 197, 0.7);
+    --primary-color-60: rgba(27, 197, 197, 0.6);
+    --primary-color-50: rgba(27, 197, 197, 0.5);
+    --primary-color-40: rgba(27, 197, 197, 0.4);
+    --primary-color-30: rgba(27, 197, 197, 0.3);
+    --primary-color-20: rgba(27, 197, 197, 0.2);
+    --primary-color-10: rgba(27, 197, 197, 0.1);
+    --gray-scale-50: #eaeaea;
+    --gray-scale-100: #bfbfbf;
+    --gray-scale-200: #a0a0a0;
+    --gray-scale-300: #747474;
+    --gray-scale-400: #595959;
+    --gray-scale-500: #303030;
+    --gray-scale-600: #2c2c2c;
+    --gray-scale-700: #222222;
+    --gray-scale-800: #1a1a1a;
+    --gray-scale-900: #141414;
+}
+/* 컨텐츠 내 공통 여백 - 갖다 쓰기 */
+.mt100 {
+    margin-top: 26.6667vw;
+}
+.mb100 {
+    margin-bottom: 26.6667vw;
+}
+.mt150 {
+    margin-top: 40vw;
+}
+.mb150 {
+    margin-bottom: 40vw;
+}
+.pt100 {
+    padding-top: 26.6667vw;
+}
+.pb100 {
+    padding-bottom: 26.6667vw;
+}
+.pt150 {
+    padding-top: 40vw;
+}
+.pb150 {
+    padding-bottom: 40vw;
+}
+
+#wrap,
+#header,
+#visual,
+#container,
+#content,
+#footer {
+    width: 100%;
+    letter-spacing: -0.1333vw;
+}
+img {
+    width: 100%;
+    vertical-align: middle;
+}
+.inner {
+    width: 91.4667vw;
+    margin: auto;
+    position: relative;
+    box-sizing: border-box;
+}
+
+#header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+#header .type {
+}
+#header .trans {
+    background: rgba(25, 25, 25, 0.8);
+}
+#header .black {
+    background: var(--gray-scale-900);
+}
+#header .white {
+    background: #fff;
+}
+#header .inner {
+    height: 13.8667vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#header h1 a img {
+    width: 29.3333vw;
+}
+#header .icons {
+    display: flex;
+}
+#header .icons .user {
+    width: 5.3333vw;
+}
+#header .icons .user img {
+}
+#header .icons .all-menu {
+    width: 5.3333vw;
+    margin-left: 5.3333vw;
+}
+#header .icons .all-menu img {
+}
+#footer {
+    background: var(--gray-scale-500);
+    color: #fff;
+}
+#footer a {
+    color: #fff;
+}
+#footer .inner {
+    padding: 10.6667vw 0;
+}
+#footer h1 a img {
+    width: 37.3333vw;
+    margin-bottom: 8vw;
+}
+#footer .menus {
+    width: 91.4667vw;
+    height: 53.3333vw;
+    position: relative;
+}
+#footer .menus ul {
+}
+#footer .menus ul li {
+    font-size: 4.8vw;
+    font-weight: 700;
+    margin-bottom: 4.8vw;
+}
+#footer .menus ul li:last-child {
+    margin-bottom: 0;
+}
+#footer .menus p {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#footer .menus p a {
+    font-size: 2.6667vw;
+    display: block;
+    margin-bottom: 2.6667vw;
+    text-align: right;
+}
+#footer .menus .sns {
+    display: flex;
+    gap: 5.3333vw;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+#footer .menus .sns img {
+    width: auto;
+    height: 5.3333vw;
+}
+#footer p {
+    font-size: 2.6667vw;
+}
+#footer .addr {
+    margin-top: 7.4667vw;
+    padding-top: 7.4667vw;
+    border-top: 0.2667vw solid #fff;
+}
+#footer .addr b {
+    display: block;
+    margin-bottom: 1.6vw;
+}
+
+#footer p:last-child {
+    margin-top: 3.7333vw;
+}

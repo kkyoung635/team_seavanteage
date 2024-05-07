@@ -1,0 +1,265 @@
+/* ------------------------- recruit ----------------------------------------- */
+#subVisual.recruit {
+    text-align: center;
+}
+#subVisual.recruit .title {
+    width: 100%;
+    height: 53.3333vw;
+    margin-top: 13.8667vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#subVisual h2 {
+    color: var(--primary-color);
+    font-size: 3.2vw;
+    margin-bottom: 4.2667vw;
+    font-weight: 600;
+    opacity: 0;
+    animation: bottomTo1 1s ease-in-out forwards;
+}
+#subVisual p {
+    font-size: 4.2667vw;
+    opacity: 0;
+    animation: bottomTo1 1s ease-in-out forwards 0.5s;
+}
+
+.cowork {
+    /* margin-top: -0.2667vw; */
+}
+.cowork .irdiagram {
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+.cowork .irdiagram .circular {
+    width: 100%;
+    margin: auto;
+    padding: 10.6667vw 0;
+}
+.cowork .irdiagram .circular .ir-txt {
+    text-align: center;
+    opacity: 0;
+    /* transform: translateY(26.6667vw); */
+    /* margin-bottom: 21.3333vw; */
+    margin-bottom: -36vw;
+    animation: bottomTo2 1s ease-in-out forwards 2s;
+}
+
+.cowork .irdiagram .circular .ir-txt h3 {
+    font-size: 8vw;
+    font-weight: 700;
+    line-height: 1.3;
+}
+.cowork .irdiagram .circular .ir-txt h3 b {
+    display: block;
+    color: var(--primary-color);
+}
+.cowork .irdiagram .circular .ir-txt h4 {
+    margin-top: 4.2667vw;
+    font-size: 3.7333vw;
+}
+.cowork .irdiagram .circular .circle {
+    text-align: center;
+    border-radius: 50%;
+    width: 30.9333vw;
+    height: 30.9333vw;
+    line-height: 30.9333vw;
+    font-size: 4.2667vw;
+    font-weight: 500;
+    background-color: var(--primary-color);
+    color: #fff;
+    margin: auto;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    animation: cirCularIn 0.5s ease-in-out forwards;
+    animation-delay: 0.3s;
+}
+.cowork .irdiagram span {
+    content: '';
+    display: block;
+    width: 30.9333vw;
+    height: 30.9333vw;
+    background-color: var(--primary-color-60);
+    box-shadow: rgba(27, 197, 197, 0.36) 0vw 0vw 1.6vw, rgba(27, 197, 197, 0.43) 0vw 0.8vw 2.6667vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    z-index: -9;
+    animation: pluseEfec 1.5s ease-in-out infinite 1s;
+}
+
+.cowork .irdiagram .circular .circle::before,
+.cowork .irdiagram .circular .circle::after {
+    content: '';
+    display: inline-block;
+    width: 42.6667vw;
+    height: 42.6667vw;
+    background-color: var(--primary-color-50);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: -5;
+}
+.cowork .irdiagram .circular .circle::after {
+    width: 53.3333vw;
+    height: 53.3333vw;
+    background-color: var(--primary-color-20);
+}
+.cowork .irdiagram .irinfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8vw;
+}
+.cowork .irdiagram .irinfo div {
+    border: 0.5333vw solid var(--primary-color-50);
+    width: 33.0667vw;
+    height: 33.0667vw;
+    text-align: center;
+    border-radius: 50%;
+    margin-left: -4.2667vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.2vw;
+    font-weight: 500;
+    opacity: 0;
+    animation: irInfo 0.5s forwards;
+    transition: 0.3s;
+}
+@keyframes irInfo {
+    0% {
+        opacity: 0;
+        transform: translateY(26.6667vw);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.cowork .irdiagram .irinfo div:nth-of-type(1) {
+    animation-delay: 1.5s;
+    margin-left: 0;
+}
+.cowork .irdiagram .irinfo div:nth-of-type(2) {
+    animation-delay: 1.7s;
+}
+.cowork .irdiagram .irinfo div:nth-of-type(3) {
+    animation-delay: 1.9s;
+}
+
+.cowork .ir-view {
+    margin-top: 18.6667vw;
+}
+.cowork .ir-view h3 {
+    text-align: center;
+    font-size: 8vw;
+    font-weight: 700;
+    margin-bottom: 8vw;
+}
+.cowork .ir-view .irlist {
+    width: 100%;
+    padding-bottom: 26.6667vw;
+    position: relative;
+}
+.cowork .ir-view .irlist .swiper-pagination-bullet {
+    background: var(--primary-color);
+}
+.cowork .ir-view .irlist .swiper-pagination {
+    position: absolute;
+    bottom: 18.6667vw;
+}
+.cowork .ir-view .irlist .cards {
+    width: 100%;
+    transition: 0.3s;
+}
+.cowork .ir-view .irlist .cards .swiper-slide {
+    width: 70%;
+    background: #f5f5f5;
+    position: relative;
+    transition: 0.3s;
+}
+.cowork .ir-view .irlist .cards .swiper-slide .text-dum {
+    padding: 8vw 0 0 8.5333vw;
+}
+.cowork .ir-view .irlist .cards .swiper-slide span {
+    font-size: 3.2vw;
+    font-weight: 600;
+}
+.cowork .ir-view .irlist .cards .swiper-slide span em {
+    margin-left: 2.6667vw;
+    transition: 0.3s;
+}
+.cowork .ir-view .irlist .cards .swiper-slide p {
+    font-size: 5.3333vw;
+    margin: 5.3333vw 0;
+    /* font-weight: 500; */
+    line-height: 1.2;
+}
+.cowork .ir-view .irlist .cards .swiper-slide b {
+    font-size: 2.6667vw;
+    padding: 1.0667vw 2.6667vw;
+    border: 0.2667vw solid #000;
+    border-radius: 5.3333vw;
+}
+.cowork .ir-view .irlist .cards .swiper-slide b:not(:nth-of-type(1)) {
+    margin-left: 1.6vw;
+}
+.cowork .ir-view .irlist .cards .swiper-slide button {
+    border: none;
+    background: var(--gray-scale-600);
+    color: #fff;
+    width: 100%;
+    height: 11.2vw;
+    margin-top: 10.6667vw;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 4.2667vw;
+}
+.cowork .ir-view .irlist .cards .swiper-slide.on em {
+    color: var(--primary-color);
+}
+.cowork .ir-view .irlist .cards .swiper-slide.on button {
+    background: var(--primary-color);
+}
+/* ------------------------- recruit dark mode----------------------------------------- */
+#subVisual.recruit.dark {
+    background: var(--gray-scale-800);
+}
+#subVisual.recruit.dark p {
+    color: #fff;
+}
+.cowork.dark {
+    background: var(--gray-scale-800);
+    color: #fff;
+}
+.cowork.dark .irdiagram .circular {
+    background: transparent;
+}
+.cowork.dark .irdiagram .circular .circle {
+    background: var(--primary-color);
+}
+.cowork.dark .irdiagram .circular .circle::before,
+.cowork.dark .irdiagram .circular .circle::after {
+    background: var(--primary-color-20);
+}
+.cowork.dark .ir-view {
+    color: #000;
+}
+.cowork.dark .ir-view h3 {
+    color: #fff;
+}
+.cowork.dark .ir-view .irlist .cards .swiper-slide {
+    background: var(--gray-scale-100);
+}
+.cowork.dark .ir-view .irlist .cards .swiper-slide.on {
+    background: #fff;
+}

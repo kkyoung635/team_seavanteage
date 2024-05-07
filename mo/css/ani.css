@@ -1,0 +1,50 @@
+/* recruit  visual title ani*/
+@keyframes bottomTo1 {
+    0% {
+        transform: translateY(2.6667vw);
+    }
+    50% {
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* recruit  circular title ani*/
+@keyframes bottomTo2 {
+    0% {
+        transform: translateY(26.6667vw);
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        margin-bottom: 21.3333vw;
+        margin-top: -10.6667vw;
+    }
+}
+
+/* recruit  circular circle ani*/
+@keyframes pluseEfec {
+    100% {
+        scale: 2;
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+}
+/* recruit  circular info ani*/
+@keyframes irInfo {
+    0% {
+        opacity: 0;
+        transform: translateY(26.6667vw);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

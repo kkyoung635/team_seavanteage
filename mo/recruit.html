@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>채용소식</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/common.css" />
+        <link rel="stylesheet" href="css/sub.css" />
+        <link rel="stylesheet" href="css/ani.css" />
+        <link rel="shortcut icon" href="images/common/favicon.ico" />
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css" />
+
+        <!-- 플러그인 -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </head>
+    <body>
+        <div id="wrap">
+            <header id="header">
+                <div class="type trans"></div>
+            </header>
+            <section id="visual"></section>
+            <section id="subVisual" class="recruit d ark">
+                <div class="inner">
+                    <div class="title">
+                        <h2>The way we work</h2>
+                        <p>
+                            당신의 꿈을 펼칠 수 있는 바다가<br />
+                            여기에 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <main id="container" class="page cowork d ark pd150">
+                <section id="content">
+                    <div class="irdiagram">
+                        <div class="circular">
+                            <div class="ir-txt">
+                                <h3>우리는 해상 물류의<b>새로운 길을 만듭니다.</b></h3>
+                                <h4>해양 물류의 새로운 길을 여는 일에 함께 해주실<br />동료를 찾습니다.</h4>
+                            </div>
+                            <div class="circle">채용안내<span></span></div>
+                        </div>
+                        <div class="irinfo">
+                            <div>
+                                최고수준의 복지, <br />
+                                함께 성장하는 일터
+                            </div>
+                            <div>
+                                패스트트랙 <br />
+                                체계적인 인사정책
+                            </div>
+                            <div>170%의 매출 성장과<br />다양한<br />직군의 신규 채용</div>
+                        </div>
+                    </div>
+                    <div class="ir-view" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                        <h3>채용관</h3>
+                        <div #swiperRef="" class="swiper irlist">
+                            <div class="swiper-wrapper cards">
+                                <div class="swiper-slide">
+                                    <div class="text-dum">
+                                        <span>담당업무<em>Development</em></span>
+                                        <p>
+                                            Business <br />Development<br />
+                                            Director
+                                        </p>
+                                        <b>경력무관</b><b>학력무관</b>
+                                    </div>
+                                    <button>즉시지원</button>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="text-dum">
+                                        <span>담당업무<em>Development</em></span>
+                                        <p>
+                                            Business<br />
+                                            Development<br />
+                                            Manager
+                                        </p>
+                                        <b>신입/경력</b>
+                                    </div>
+                                    <button>즉시지원</button>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="text-dum">
+                                        <span>담당업무<em>Operations</em></span>
+                                        <p>
+                                            서비스 운영 /<br />
+                                            고객관리
+                                        </p>
+                                        <b>신입/경력</b>
+                                    </div>
+                                    <button>즉시지원</button>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer id="footer"></footer>
+        </div>
+        <script src="js/common.js"></script>
+        <script src="js/sub.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <script>
+            AOS.init();
+
+            var swiper = new Swiper('.irlist', {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+
+            const $slides = getAll('.cowork .ir-view .irlist .cards .swiper-slide');
+            $slides[0].classList.add('on');
+
+            swiper.on('slideChange', function () {
+                // 현재 액티브 페이지의 인덱스 출력
+                // console.log('현재 액티브 페이지:', swiper.activeIndex);
+
+                $slides.forEach((slides, idx) => {
+                    $slides.forEach((slide) => {
+                        slide.classList.remove('on');
+                    });
+                    $slides[swiper.activeIndex].classList.add('on');
+                });
+            });
+        </script>
+    </body>
+</html>
