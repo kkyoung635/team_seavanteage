@@ -1,12 +1,13 @@
 const fRecruitDark = () => {
+    const $body = get('body');
     const $recruitHeader = get('#header div');
     const $recruitVis = get('#subVisual');
     const $recruitCircle = get('.cowork .irdiagram .circular .circle ');
     const $recruitMain = get('.cowork');
     let tema = true;
     setTimeout(() => {
-        // $recruitHeader.classList.remove('black');
-        // $recruitHeader.classList.add('white');
+        $body.classList.add('dark');
+        $body.style.transition = `0.4s`;
         $recruitVis.classList.add('dark');
         $recruitVis.style.transition = `0.4s`;
         $recruitMain.classList.add('dark');
@@ -15,20 +16,43 @@ const fRecruitDark = () => {
 
     $recruitCircle.addEventListener('click', (e) => {
         if (tema) {
-            // $recruitHeader.classList.remove('white');
-            // $recruitHeader.classList.add('black');
+            $body.classList.remove('dark');
             $recruitVis.classList.remove('dark');
             $recruitMain.classList.remove('dark');
             tema = false;
         } else {
-            // $recruitHeader.classList.add('white');
-            // $recruitHeader.classList.remove('black');
+            $body.classList.add('dark');
             $recruitVis.classList.add('dark');
             $recruitMain.classList.add('dark');
 
             tema = true;
         }
     });
+    // setTimeout(() => {
+    //     // $recruitHeader.classList.remove('black');
+    //     // $recruitHeader.classList.add('white');
+    //     $recruitVis.classList.add('dark');
+    //     $recruitVis.style.transition = `0.4s`;
+    //     $recruitMain.classList.add('dark');
+    //     $recruitMain.style.transition = `0.4s`;
+    // }, 1000);
+
+    // $recruitCircle.addEventListener('click', (e) => {
+    //     if (tema) {
+    //         // $recruitHeader.classList.remove('white');
+    //         // $recruitHeader.classList.add('black');
+    //         $recruitVis.classList.remove('dark');
+    //         $recruitMain.classList.remove('dark');
+    //         tema = false;
+    //     } else {
+    //         // $recruitHeader.classList.add('white');
+    //         // $recruitHeader.classList.remove('black');
+    //         $recruitVis.classList.add('dark');
+    //         $recruitMain.classList.add('dark');
+
+    //         tema = true;
+    //     }
+    // });
 };
 
 const fcardClick = () => {

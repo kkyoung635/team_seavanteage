@@ -231,14 +231,15 @@
     background: var(--primary-color);
 }
 /* ------------------------- recruit dark mode----------------------------------------- */
-#subVisual.recruit.dark {
+body.dark {
     background: var(--gray-scale-800);
+    color: #fff;
 }
 #subVisual.recruit.dark p {
     color: #fff;
 }
 .cowork.dark {
-    background: var(--gray-scale-800);
+    /* background: var(--gray-scale-800); */
     color: #fff;
 }
 .cowork.dark .irdiagram .circular {
