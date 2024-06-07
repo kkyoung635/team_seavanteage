@@ -74,6 +74,37 @@ const fcardClick = () => {
         });
     });
 };
+const tab = () => {
+    const $tabMenus = getAll('.soln-tab .tab-menu li');
+    const $tabLists = getAll('.soln-tab .tab-list li');
 
-fRecruitDark();
-// fcardClick();
+    $tabMenus.forEach((tab, idx) => {
+        tab.addEventListener('click', (e) => {
+            $tabMenus.forEach((tabs, idx) => {
+                tabs.classList.remove('on');
+                $tabLists[idx].style.opacity = 0;
+            });
+            e.currentTarget.classList.add('on');
+            $tabLists[idx].style.opacity = 1;
+        });
+    });
+};
+const iot = () => {
+    tab();
+};
+const recruit = () => {
+    fRecruitDark();
+    // fcardClick();
+};
+
+const subInit = () => {
+    if (location.pathname.split('/').pop() === 'recruit.html') {
+        recruit();
+    }
+    if (location.pathname.split('/').pop() === 'iot.html') {
+        iot();
+    }
+};
+(() => {
+    subInit();
+})();

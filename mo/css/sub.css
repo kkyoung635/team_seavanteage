@@ -264,3 +264,271 @@ body.dark {
 .cowork.dark .ir-view .irlist .cards .swiper-slide.on {
     background: #fff;
 }
+
+/* ---------------------iot----------------------------------------- */
+.iot-visual {
+    width: 100%;
+    height: 177.8667vw;
+}
+.soln-vis-banner {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20% center;
+    background-image: url(../images/content/iot/iot-visual-bg.jpg);
+}
+.vis-title {
+    text-align: center;
+    padding-top: 61.8667vw;
+}
+.vis-title span {
+    font-size: 2.6667vw;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+.vis-title h2 {
+    margin-top: 4.8vw;
+    font-size: 8vw;
+    font-weight: 700;
+    color: #fff;
+}
+.vis-title p {
+    font-size: 3.2vw;
+    color: #fff;
+    margin-top: 4.8vw;
+    line-height: 1.6;
+}
+
+/* main 공통 */
+.sec-title {
+    text-align: center;
+}
+.sec-title .title {
+    font-size: 8vw;
+    font-weight: 700;
+}
+.sec-title .title .txt-thick {
+    color: var(--primary-color);
+}
+
+/* main area1 */
+.iot-area1 {
+    height: 177.8667vw;
+    text-align: center;
+    overflow: hidden;
+}
+.iot-area1 .sec-title .title {
+    padding-top: 22.4vw;
+}
+.iot-area1 .sec-title p {
+    font-size: 3.2vw;
+    margin-top: 4.8vw;
+    margin-bottom: 10.4vw;
+}
+.iot-area1 .speech {
+    position: relative;
+}
+.iot-area1 .speech img {
+    position: absolute;
+    width: 69.3333vw;
+}
+.iot-area1 .speech img:nth-child(1) {
+    left: 2.6667vw;
+    top: 0vw;
+}
+.iot-area1 .speech img:nth-child(2) {
+    top: 18.1333vw;
+    left: 16.8vw;
+}
+
+/* main area2 */
+.port-area2 {
+    height: 160vw;
+}
+.port-area2 .sec-title {
+    padding-top: 30.1333vw;
+    margin-bottom: 16vw;
+}
+.port-area2 .sec-title .title {
+    font-size: 7.7333vw;
+}
+.port-area2 .video video {
+    max-width: 100%;
+    height: 64vw;
+}
+.iot-area3 {
+    height: 177.8667vw;
+}
+.iot-area3 .tab-menu {
+    padding-top: 29.3333vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 8vw;
+    margin-right: 8vw;
+    font-size: 3.2vw;
+    font-weight: 500;
+}
+.iot-area3 .tab-menu li {
+    position: relative;
+}
+.iot-area3 .tab-menu li a::after {
+    content: '';
+    width: 100%;
+    height: 0.2667vw;
+    background: var(--gray-scale-300);
+    position: absolute;
+    left: 0;
+    bottom: -2.6667vw;
+}
+
+.iot-area3 .tab-menu li.on a {
+    color: var(--primary-color);
+}
+.iot-area3 .tab-menu li.on a::after {
+    background: var(--primary-color);
+}
+
+.iot-area3 .tab-list {
+    margin-top: 13.6vw;
+    position: relative;
+}
+.iot-area3 .tab-list .sec-title {
+    text-align: center;
+}
+
+.iot-area3 .tab-list .sec-title p {
+    font-size: 3.2vw;
+    margin-top: 4.8vw;
+    margin-bottom: 8vw;
+}
+.iot-area3 .tab-list li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: 0.7s;
+}
+.iot-area3 .tab-list li:nth-child(1) {
+    opacity: 1;
+}
+.iot-area3 .tab-list li:nth-child(2) {
+    opacity: 0;
+}
+.iot-area3 .tab-list li:nth-child(3) {
+    opacity: 0;
+}
+.iot-area3 .tab-list li span img {
+    height: 64vw;
+}
+.iot-area4 {
+    padding-top: 29.3333vw;
+    height: 243.2vw;
+}
+.iot-area4 .sec-title p {
+    font-size: 3.2vw;
+    margin-top: 4.8vw;
+    margin-bottom: 13.3333vw;
+}
+.iot-area4 ul {
+    display: flex;
+    flex-direction: column;
+}
+.iot-area4 ul li {
+    margin-bottom: 8vw;
+}
+.iot-area5 {
+    height: 177.8667vw;
+    text-align: center;
+    padding-top: 29.3333vw;
+}
+.iot-area5 .sec-title b {
+    font-size: 3.2vw;
+}
+.iot-area5 .sec-title .title {
+    margin-top: 4.8vw;
+    font-size: 7.7333vw;
+}
+
+.iot-area5 .swiper-slide {
+    margin-top: 14.6667vw;
+    position: relative;
+}
+.iot-area5 .swiper-slide img {
+    max-width: 100%;
+    height: 93.3333vw;
+}
+.iot-area5 .swiper-slide .txt {
+    position: absolute;
+    text-align-last: left;
+    left: 4.2667vw;
+    bottom: 21.3333vw;
+    color: #fff;
+    text-shadow: 0.2667vw 0.2667vw 0.5333vw black;
+}
+.iot-area5 .swiper-slide .txt strong {
+    display: block;
+    font-size: 5.3333vw;
+    font-weight: 700;
+}
+.iot-area5 .swiper-slide .txt em {
+    display: block;
+    margin-top: 2.6667vw;
+    font-size: 3.2vw;
+}
+.iot-area5 .swiper-pagination {
+    position: absolute;
+    left: 50%;
+    bottom: 5.3333vw;
+}
+.iot-area6 {
+    height: 177.8667vw;
+}
+.iot-area6 .sec-title {
+    margin-top: 29.3333vw;
+}
+.iot-area6 .sec-title .title {
+    font-size: 7.4667vw;
+}
+
+.iot-area6 .swiper-slide {
+    position: relative;
+    opacity: 0;
+}
+.iot-area6 .swiper-slide-active {
+    opacity: 1;
+}
+.iot-area6 .swiper-slide-active p {
+    opacity: 0.7;
+}
+.iot-area6 .swiper-slide p {
+    margin-top: 16vw;
+    width: 91.4667vw;
+    height: 72vw;
+    border-radius: 2.6667vw;
+    text-align: center;
+    line-height: 1.3;
+    box-shadow: rgba(0, 0, 0, 0.35) 0vw 1.3333vw 4vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15.7333vw;
+    background: #fff;
+}
+
+.iot-area6 .swiper-slide p strong {
+    font-size: 4.2667vw;
+    display: block;
+    padding-top: 4.8vw;
+    padding-bottom: 5.3333vw;
+}
+.iot-area6 .swiper-slide p span {
+    font-size: 3.2vw;
+}
+.iot-area6 .swiper-slide .bg-vid-container {
+    width: 100%;
+    height: 64vw;
+    margin-top: 66.6667vw;
+}
+body {
+    --swiper-pagination-color: var(--primary-color);
+}
